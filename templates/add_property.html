@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Список недвижимости</h1>
+    <ul>
+        {% for ad in ads %}
+            <li>ID: {{ ad[3]}} | Статус: {{ ad[4] }} | Площадь: {{ ad[0] }} | Адрес: {{ad[1]}}</li>
+        {% endfor %}
+    </ul>
+  
+  <h3>Добавить недвижимость</h3>
+  <form method="post">
+    <div class="mb-3">
+      <label for="prop_size" class="form-label">Площадь</label>
+      <input type="number" class="form-control" id="prop_size" name="prop_size" required>
+    </div>
+    <div class="mb-3">
+      <label for="address" class="form-label">Адрес</label>
+      <input type="text" class="form-control" id="address" name="address" required>
+    </div>
+    <div class="mb-3">
+      <label for="prop_type" class="form-label">Тип недвижимости</label>
+      <select class="form-select" id="prop_type" name="prop_type" required>
+        <option value="1">Дом</option>
+        <option value="2">Квартира</option>
+        <option value="3">Лофт</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить недвижимость</button>
+  </form>
+{% endblock %}
